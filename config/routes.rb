@@ -11,7 +11,10 @@ Rails.application.routes.draw do
   root 'dashboard#show'
 
   resource :dashboard
-  resources :todos
+
+  resources :todos do
+    post :update_order, on: :collection
+  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

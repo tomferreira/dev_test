@@ -1,6 +1,7 @@
 class Todo < ActiveRecord::Base
 
-  default_scope { order('due_date ASC') }
+  include RankedModel
+  ranks :order
 
   scope :undone, -> { where( done: false ) }
   scope :done, -> { where( done: true ) }

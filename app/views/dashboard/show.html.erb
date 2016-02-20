@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-6">
-<table class="table">
+<table class="table table-striped" id="sortable">
   <thead>
     <tr>
       <th>Todo</th>
@@ -11,7 +11,7 @@
   </thead>
   <tbody>
     <% @todos_undone.each do |todo| %>
-    <tr>
+    <tr data-item-id=<%= "#{todo.id}" %> class="item">
       <td><%= todo.description %></td>
       <td><%= todo.due_date %></td>
       <td>

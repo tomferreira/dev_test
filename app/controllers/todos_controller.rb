@@ -35,6 +35,16 @@ class TodosController < ApplicationController
     redirect_to root_path
   end
 
+  def update_order
+    safe_params = params.require(:todo).permit(:id, :order_position)
+
+    @todo = current_user.todos.find(safe_params[:id])
+    @todo.order_position = safe_params[:order_position]
+    @todo.save
+
+    render nothing: true
+  end
+
 private
 
   def todo_params

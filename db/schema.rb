@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160220200933) do
+ActiveRecord::Schema.define(version: 20160220204918) do
 
   create_table "todos", force: true do |t|
     t.integer  "user_id"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20160220200933) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "done"
+    t.integer  "order"
   end
 
   create_table "users", force: true do |t|
