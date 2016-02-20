@@ -1,0 +1,58 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6">
+<table class="table">
+  <thead>
+    <tr>
+      <th>Todo</th>
+      <th>Due date</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @todos_undone.each do |todo| %>
+    <tr>
+      <td><%= todo.description %></td>
+      <td><%= todo.due_date %></td>
+      <td>
+        <%= link_to edit_todo_path(todo) do %>
+          <i class="glyphicon glyphicon-edit"></i>
+        <% end %>
+        <%= link_to todo,  method: :delete, data: { confirm: 'Are you sure?' } do %> 
+          <i class="glyphicon glyphicon-remove"></i>
+        <% end %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+    </div>
+    <div class="col-md-6">
+<table class="table">
+  <thead>
+    <tr>
+      <th>Todo</th>
+      <th>Due date</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @todos_done.each do |todo| %>
+    <tr>
+      <td><s><%= todo.description %></s></td>
+      <td><s><%= todo.due_date %></s></td>
+      <td>
+        <%= link_to edit_todo_path(todo) do %>
+          <i class="glyphicon glyphicon-edit"></i>
+        <% end %>
+        <%= link_to todo,  method: :delete, data: { confirm: 'Are you sure?' } do %>
+          <i class="glyphicon glyphicon-remove"></i>
+        <% end %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+  </div>
+</div>
